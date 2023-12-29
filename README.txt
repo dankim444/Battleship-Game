@@ -7,10 +7,6 @@ PennKey: dankim1
 =: Core Concepts :=
 ===================
 
-- List the four core concepts, the features they implement, and why each feature
-  is an appropriate use of the concept. Incorporate the feedback you got after
-  submitting your proposal.
-
   1. 2d array of Strings. This represents the game board and stores all information about the different types of
   ships. Using strings was appropriate because I needed a way to represent the variety of different ship types and
   their orientations. "_" represents water, "1" represents a submarine, "H2" represents a horizontal cruiser, "V2"
@@ -37,18 +33,15 @@ PennKey: dankim1
   player has made a shot.  I will also test for game-over state, making sure that the game properly ends after all
   ships have been sunk.
 
-  4. I implement File I/O to save the game state as a text file. Specifically, there will be a save button that when
+  4. File I/O. I implement File I/O to save the game state as a text file. Specifically, there will be a save button that when
   clicked, the game will import all the information stored in the 2d array to a text file. Each row will represent a
   string of strings where each string value is separated by a space and each sequential row is represented by a new
   line in the file. The File/IO feature will then parse the data to properly display the board's state when the player
   wants to save the game.
 
 =========================
-=: Your Implementation :=
+=: Implementation :=
 =========================
-
-- Provide an overview of each of the classes in your code, and what their
-  function is in the overall game.
 
   Battleship.java - Represents the model and holds most of the game logic. The Battleship class instantiates the 2D
   array that represents the board game in the constructor, initially setting all cells to water, and then calling
@@ -68,35 +61,3 @@ PennKey: dankim1
   implements controller functionality through the undo, save, and load buttons, and also instantiates the game board.
   The Battleship object is the model, and it will handle the rest of the game's view and functionality.
 
-
-- Were there any significant stumbling blocks while you were implementing your
-  game (related to your design, or otherwise)?
-
-There were many significant stumbling blocks while implementing this game. First, I had trouble getting my
-placeShipsRandomly() to work properly. There were many cases I needed to consider for this function, such as making
-sure that each ship did not overlap other ships and did not overlap any borders of other ships. This required a lot
-of case work and conditional statements to verify ship placements. To make this process easier, I used a boolean to
-keep track of whether or not the ship I was trying to place was inside any border. In addition, the takeShot() function
-required a lot of different scenarios to consider. For example, I needed to consider the different orientations and
-sizes of the ships. Additionally, I needed to consider the different portions of the ships I was hitting if a ship
-was one square away from getting destroyed. This required different ways to iterate through arrays for each case, which
-made the coding process very tedious. At one point, I had a char[][], but I realized using a String[][] was easier
-to represent the various ship types.
-
-
-- Evaluate your design. Is there a good separation of functionality? How well is
-  private state encapsulated? What would you refactor, if given the chance?
-
-If I were given the chance, I would make a separate ship class that stores different types of ships, and includes
-methods that makes it easier to check when a ship has been hit or destroyed using boolean values. This would be
-easier than the overwhelming amount of case work I did in takeShots() and placeShipsRandomly(). I think, overall,
-my private state encapsulation is very good. For example, when returning the board instance variable, I return a copy
-instead.
-
-
-========================
-=: External Resources :=
-========================
-
-- Cite any external resources (images, tutorials, etc.) that you may have used 
-  while implementing your game.
