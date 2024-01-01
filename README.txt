@@ -2,7 +2,7 @@
 =: Core Concepts :=
 ===================
 
-  1. 2d array of Strings. This represents the game board and stores all information about the different types of
+  1. 2d array. This represents the game board and stores all information about the different types of
   ships. Using strings was appropriate because I needed a way to represent the variety of different ship types and
   their orientations. "_" represents water, "1" represents a submarine, "H2" represents a horizontal cruiser, "V2"
   represents a vertical cruiser, "H3" represents a horizontal battleship, "V3" represents a vertical battleships,
